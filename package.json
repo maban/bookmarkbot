@@ -4,8 +4,9 @@
   "description": "Enter bookmarks in the command line, and have them published to a repo to share with your friends!",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js && npm run build",
-    "build": "make"
+    "start": "node index.js && npm run build && npm run deploy",
+    "build": "make",
+    "deploy": "./deploy.sh"
   },
   "author": "Anna Debenham",
   "license": "ISC",
