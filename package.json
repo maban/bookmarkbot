@@ -1,0 +1,26 @@
+{
+  "name": "bookmarkbot",
+  "version": "1.0.0",
+  "description": "Enter bookmarks in the command line, and have them published to a repo to share with your friends!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js && npm run build",
+    "build": "make"
+  },
+  "author": "Anna Debenham",
+  "license": "ISC",
+  "dependencies": {
+    "metalsmith": "^2.3.0"
+  },
+  "devDependencies": {
+    "handlebars": "^4.0.5",
+    "inquirer": "^4.0.0",
+    "metalsmith": "^2.3.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-layouts": "^1.4.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "shortid": "^2.2.8",
+    "snyk": "^1.50.0"
+  }
+}

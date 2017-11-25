@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body class="template-home">
+
+  <div class="page-content">
+
+    <div class="wrapper">
+
+      <section>
+        <h1 class="title"><span id="total-resource-count"></span> {{title}}</h1>
+        <ul class="list--inline">
+          <li class="list__item"><a href="https://github.com/maban/bookmarkbot">GitHub repo</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <ul class="resources resource-type-article">
+          {{#each collections.bookmarks}}
+          <li class="resource" data-tags="">
+            <span class="resource__description">
+              <a href="{{ link }}" class="resource__description__url">
+                <h2 class="resource__title">{{title}}</h2>
+              </a>
+              <span class="resource__description__content">
+              {{{contents}}}
+              </span>
+              {{#if tags}}
+              <ul class="resource__description__tags">
+                {{#each tags}}<li class="resource__description__tags__item">{{this}}</li>{{/each}}
+              </ul>
+              {{/if}}
+            </span>
+          </li>
+          {{/each}}
+        </ul>
+      </section>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
