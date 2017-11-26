@@ -4,12 +4,12 @@
   "description": "Enter bookmarks in the command line, and have them published to a repo to share with your friends!",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js && npm run build && npm run deploy",
+    "start": "node index.js && npm run build",
     "build": "make",
     "deploy": "./deploy.sh"
   },
   "author": "Anna Debenham",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "metalsmith": "^2.3.0"
   },
@@ -21,7 +21,7 @@
     "metalsmith-layouts": "^1.4.1",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.5.0",
-    "shortid": "^2.2.8",
+    "slugify": "^1.2.6",
     "snyk": "^1.50.0"
   }
 }
