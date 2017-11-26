@@ -1,7 +1,7 @@
 'use strict';
 var inquirer = require('inquirer');
 var fs = require('fs');
-var shortid = require('shortid');
+var slugify = require('slugify');
 
 console.log('🐿  Oh, hello! Found something you want me to bookmark?\n');
 
@@ -48,30 +48,61 @@ var questions = [
   },
 ];
 
-inquirer.prompt(questions).then(answers => {
-  console.log('\n🐿  All done! Here is what I\'ve written down:\n');
-  console.log('---');
-  console.log('title: "' + answers.title + '"');
-  console.log('link: "' + answers.link + '"');
-  console.log('tags: ' + answers.tags);
-  console.log('---');
-  console.log(answers.description);
-  console.log('\n');
+var confirm = [
+  {
+    type: 'confirm',
+    name: 'confirm',
+    message: 'Does this look good?',
+  },
+];
 
-  var filedata = '---\n' +
-    'title: "' + answers.title + '"\n' +
-    'link: "' + answers.link + '"\n' +
-    'tags: ' + answers.tags + '\n' +
-    '---\n\n' + answers.description;
-  var slug = shortid.generate();
-  var filename = 'src/bookmarks/' + slug + '.md';
+function askQuestions() {
 
-  function writeFile() {
-    fs.writeFile(filename, filedata, function () {
-      console.log('🐿  I have saved your bookmark to ' + filename + '\n');
+  inquirer.prompt(questions).then((answers) => {
+
+    var title = answers.title;
+    var link = answers.link;
+    var tags = answers.tags;
+    var description = answers.description;
+
+    console.log('\n🐿  All done! Here is what I\'ve written down:\n');
+    console.log('---');
+    console.log('title: "' + title + '"');
+    console.log('link: "' + link + '"');
+    console.log('tags: ' + tags);
+    console.log('---');
+    console.log(description);
+    console.log('\n');
+
+    inquirer.prompt(confirm).then(answers => {
+
+      var filedata = '---\n' +
+        'title: "' + title + '"\n' +
+        'link: "' + link + '"\n' +
+        'tags: ' + tags + '\n' +
+        '---\n\n' + description;
+      var slug = slugify(title);
+      var filename = 'src/bookmarks/' + slug + '.md';
+
+      function writeFile() {
+        fs.writeFile(filename, filedata, function () {
+          console.log('\n🐿  Great! I have saved your bookmark to ' +
+          filename +
+          '. Now deploying…\n');
+        });
+      }
+
+      if (answers.confirm) {
+        writeFile();
+      } else {
+        console.log('\n🐿  Oops, let\'s try again!\n');
+        askQuestions();
+      }
+
     });
-  }
 
-  writeFile();
+  });
 
-});
+}
+
+askQuestions();
