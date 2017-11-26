@@ -5,6 +5,7 @@
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
   <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
 
 <body class="template-home">
@@ -14,16 +15,47 @@
     <div class="wrapper">
 
       <section>
-        <h1 class="title"><span id="total-resource-count"></span> {{title}}</h1>
-        <ul class="list--inline">
-          <li class="list__item"><a href="https://github.com/maban/bookmarkbot">GitHub repo</a></li>
+        <h1 class="title">{{title}}</h1>
+        <p class="lede">{{description}}</p>
+
+      <div class="tags">
+        <ul class="tag">
+          <li class="tag__item">
+            <input class="tag__item__checkbox show-all" type="checkbox" value="show-all" checked id="show-all"/>
+            <label class="tag__item__label" for="show-all">Show All</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="frontend" id="frontend" />
+            <label class="tag__item__label" for="frontend">frontend</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="backend" id="backend" />
+            <label class="tag__item__label" for="backend">backend</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="security" id="security" />
+            <label class="tag__item__label" for="security">security</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="design" id="design" />
+            <label class="tag__item__label" for="design">design</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="process" id="process" />
+            <label class="tag__item__label" for="process">process</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="business" id="business" />
+            <label class="tag__item__label" for="business">business</label>
+          </li>
         </ul>
+      </div>
       </section>
 
       <section>
         <ul class="resources resource-type-article">
           {{#each collections.bookmarks}}
-          <li class="resource" data-tags="">
+          <li class="resource {{#each tags}}{{this}}{{/each}}" {{#if tags}}data-tags="{{#each tags}}{{this}}{{/each}}"{{/if}}>
             <span class="resource__description">
               <a href="{{ link }}" class="resource__description__url">
                 <h2 class="resource__title">{{title}}</h2>
@@ -42,9 +74,18 @@
         </ul>
       </section>
 
+      <section>
+        <ul class="list--inline">
+          <li class="list__item"><a href="https://github.com/maban/bookmarkbot"><img src="./assets/logo.svg" width="100px" alt="bookmarkbot"></a></li>
+        </ul>
+      </section>
+
     </div>
 
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+  <script src="scripts/tags.js"></script>
 
 </body>
 
