@@ -62,24 +62,35 @@ function askQuestions() {
 
     var title = answers.title;
     var link = answers.link;
-    var tags = answers.tags;
+    var tags = answers.tags + '';
+    var tag = tags.split(',');
     var description = answers.description;
+
+
 
     console.log('\n🐿  All done! Here is what I\'ve written down:\n');
     console.log('---');
     console.log('title: "' + title + '"');
     console.log('link: "' + link + '"');
-    console.log('tags: ' + tags);
+    console.log('tags: ');
+    for(var i = 0; i < tag.length; i++) {
+      console.log(' - ' + tag[i]);
+    }
     console.log('---');
     console.log(description);
     console.log('\n');
 
     inquirer.prompt(confirm).then(answers => {
 
+      for(var i = 0; i < tag.length; i++) {
+        tag[i];
+      }
+
       var filedata = '---\n' +
         'title: "' + title + '"\n' +
         'link: "' + link + '"\n' +
-        'tags: ' + tags + '\n' +
+        'tags:\n' +
+        ' - ' + tag[i] + '\n' +
         '---\n\n' + description;
       var slug = slugify(title);
       var filename = 'src/bookmarks/' + slug + '.md';
@@ -93,8 +104,10 @@ function askQuestions() {
       }
 
       if (answers.confirm) {
+        // Make the file
         writeFile();
       } else {
+        // Ask the questions again
         console.log('\n🐿  Oops, let\'s try again!\n');
         askQuestions();
       }
