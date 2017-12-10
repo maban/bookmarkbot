@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>{{title}}</title>
-  <meta name="description" content="{{description}}">
+  <title>{{site.title}}</title>
+  <meta name="description" content="{{site.description}}">
   <link rel="stylesheet" href="styles/main.css">
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
@@ -15,8 +15,8 @@
     <div class="wrapper">
 
       <section>
-        <h1 class="title">{{title}}</h1>
-        <p class="lede">{{description}}</p>
+        <h1 class="title">{{site.title}}</h1>
+        <p class="lede">{{site.description}}</p>
 
       <div class="tags">
         <ul class="tag">
@@ -54,23 +54,23 @@
 
       <section>
         <ul class="resources resource-type-article">
-          {{#each collections.bookmarks}}
-          <li class="resource {{#each tags}}{{this}}{{/each}}" {{#if tags}}data-tags="{{#each tags}}{{this}}{{/each}}"{{/if}}>
+          {% for bookmark in site.bookmarks %}
+          <li class="resource{% if bookmark.tags %}{% for tags in bookmark.tags %} {{tags}}{% endfor %}{% endif %}" {% if bookmark.tags %}data-tags="{% for tags in bookmark.tags %} {{tags}}{% endfor %}"{% endif %}>
             <span class="resource__description">
-              <a href="{{ link }}" class="resource__description__url">
-                <h2 class="resource__title">{{title}}</h2>
+              <a href="{{bookmark.link}}" class="resource__description__url">
+                <h2 class="resource__title">{{bookmark.title}}</h2>
               </a>
               <span class="resource__description__content">
-              {{{contents}}}
+              {{bookmark.contents}}
               </span>
-              {{#if tags}}
+              {% if bookmark.tags %}
               <ul class="resource__description__tags">
-                {{#each tags}}<li class="resource__description__tags__item">{{this}}</li>{{/each}}
+                {% for tags in bookmark.tags %}<li class="resource__description__tags__item">{{tags}}</li>{% endfor%}
               </ul>
-              {{/if}}
+              {% endif %}
             </span>
           </li>
-          {{/each}}
+          {% endfor %}
         </ul>
       </section>
 

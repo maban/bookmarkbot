@@ -1,0 +1,6 @@
+title: My Bookmarks
+description: These are some of my favourite articles about the web.
+markdown: kramdown
+baseurl: /bookmarkbot
+collections:
+  - bookmarks

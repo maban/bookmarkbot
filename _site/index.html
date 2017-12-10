@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Bookmarks</title>
+  <meta name="description" content="These are some of my favourite articles about the web.">
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;subset=latin-ext" rel="stylesheet">
+</head>
+
+<body class="template-home">
+
+  <div class="page-content">
+
+    <div class="wrapper">
+
+      <section>
+        <h1 class="title">My Bookmarks</h1>
+        <p class="lede">These are some of my favourite articles about the web.</p>
+
+      <div class="tags">
+        <ul class="tag">
+          <li class="tag__item">
+            <input class="tag__item__checkbox show-all" type="checkbox" value="show-all" checked id="show-all"/>
+            <label class="tag__item__label" for="show-all">Show All</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="frontend" id="frontend" />
+            <label class="tag__item__label" for="frontend">frontend</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="backend" id="backend" />
+            <label class="tag__item__label" for="backend">backend</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="security" id="security" />
+            <label class="tag__item__label" for="security">security</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="design" id="design" />
+            <label class="tag__item__label" for="design">design</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="process" id="process" />
+            <label class="tag__item__label" for="process">process</label>
+          </li>
+          <li class="tag__item">
+            <input class="tag__item__checkbox" type="checkbox" value="business" id="business" />
+            <label class="tag__item__label" for="business">business</label>
+          </li>
+        </ul>
+      </div>
+      </section>
+
+      <section>
+        <ul class="resources resource-type-article">
+          
+          <li class="resource frontend" data-tags=" frontend">
+            <span class="resource__description">
+              <a href="https://24ways.org/2016/css-writing-modes/" class="resource__description__url">
+                <h2 class="resource__title">CSS Writing Modes</h2>
+              </a>
+              <span class="resource__description__content">
+              
+              </span>
+              
+              <ul class="resource__description__tags">
+                <li class="resource__description__tags__item">frontend</li>
+              </ul>
+              
+            </span>
+          </li>
+          
+          <li class="resource frontend backend" data-tags=" frontend backend">
+            <span class="resource__description">
+              <a href="https://24ways.org/2016/how-to-make-a-chrome-extension/" class="resource__description__url">
+                <h2 class="resource__title">How to Make a Chrome Extension to Delight (or Troll) Your Friends</h2>
+              </a>
+              <span class="resource__description__content">
+              
+              </span>
+              
+              <ul class="resource__description__tags">
+                <li class="resource__description__tags__item">frontend</li><li class="resource__description__tags__item">backend</li>
+              </ul>
+              
+            </span>
+          </li>
+          
+          <li class="resource design process" data-tags=" design process">
+            <span class="resource__description">
+              <a href="https://24ways.org/2016/information-literacy-is-a-design-problem/" class="resource__description__url">
+                <h2 class="resource__title">Information Literacy Is a Design Problem</h2>
+              </a>
+              <span class="resource__description__content">
+              
+              </span>
+              
+              <ul class="resource__description__tags">
+                <li class="resource__description__tags__item">design</li><li class="resource__description__tags__item">process</li>
+              </ul>
+              
+            </span>
+          </li>
+          
+          <li class="resource process business" data-tags=" process business">
+            <span class="resource__description">
+              <a href="https://24ways.org/2016/public-speaking-with-a-buddy/" class="resource__description__url">
+                <h2 class="resource__title">Public Speaking with a Buddy</h2>
+              </a>
+              <span class="resource__description__content">
+              
+              </span>
+              
+              <ul class="resource__description__tags">
+                <li class="resource__description__tags__item">process</li><li class="resource__description__tags__item">business</li>
+              </ul>
+              
+            </span>
+          </li>
+          
+          <li class="resource frontend" data-tags=" frontend">
+            <span class="resource__description">
+              <a href="https://24ways.org/2016/what-next-for-css-grid-layout/" class="resource__description__url">
+                <h2 class="resource__title">What next for CSS Grid Layout?</h2>
+              </a>
+              <span class="resource__description__content">
+              
+              </span>
+              
+              <ul class="resource__description__tags">
+                <li class="resource__description__tags__item">frontend</li>
+              </ul>
+              
+            </span>
+          </li>
+          
+        </ul>
+      </section>
+
+      <section>
+        <ul class="list--inline">
+          <li class="list__item"><a href="https://github.com/maban/bookmarkbot"><img src="./assets/logo.svg" width="100px" alt="bookmarkbot"></a></li>
+        </ul>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+  <script src="scripts/tags.js"></script>
+
+</body>
+
+</html>
