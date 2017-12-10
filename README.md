@@ -1,4 +1,4 @@
-<img src="https://github.com/maban/bookmarkbot/blob/master/src/assets/logo.png" width="150">
+<img src="https://github.com/maban/bookmarkbot/blob/master/assets/logo.png" width="150">
 
 [![Known Vulnerabilities](https://snyk.io/test/github/maban/bookmarkbot/badge.svg)](https://snyk.io/test/github/maban/bookmarkbot)
 
