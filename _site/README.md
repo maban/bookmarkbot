@@ -1,5 +1,7 @@
 <img src="https://github.com/maban/bookmarkbot/blob/master/src/assets/logo.png" width="150">
 
+[![Known Vulnerabilities](https://snyk.io/test/github/maban/bookmarkbot/badge.svg)](https://snyk.io/test/github/maban/bookmarkbot)
+
 # bookmarkbot
 
 Enter bookmarks in the command line, and have them published to a repo to share with your friends!
