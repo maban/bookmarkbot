@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "handlebars": "^4.0.5",
-    "inquirer": "^4.0.0",
+    "inquirer": "^7.3.0",
     "slugify": "^1.2.6",
     "snyk": "^1.50.0"
   }
